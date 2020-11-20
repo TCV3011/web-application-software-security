@@ -1,0 +1,23 @@
+{
+  "name": "web-application-software-security",
+  "version": "1.0.0",
+  "description": "A web secure webapp in nodejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TCV3011/web-application-software-security.git"
+  },
+  "author": "Tycho Verstraete",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TCV3011/web-application-software-security/issues"
+  },
+  "homepage": "https://github.com/TCV3011/web-application-software-security#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1"
+  }
+}
