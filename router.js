@@ -1,5 +1,5 @@
 /**
- * routes.js
+ * router.js
  * author: Tycho Verstraete
  * date: 21/11/2020
  */
