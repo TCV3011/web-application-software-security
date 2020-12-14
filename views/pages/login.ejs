@@ -1,0 +1,41 @@
+<div class="auth-container">
+  <div class="login">
+    <a href="/" class="login-img"><img src="/img/logo.png" alt="logo" /></a>
+    <form>
+      <div class="form-field">
+        <label for="email">
+          <ion-icon name="mail"></ion-icon>
+        </label>
+        <input
+          type="email"
+          placeholder="Email*"
+          id="email"
+          name="email"
+          autofocus="autofocus"
+          required
+        />
+      </div>
+      <div class="form-field">
+        <label for="password">
+          <ion-icon name="lock-closed"></ion-icon>
+        </label>
+        <input
+          type="password"
+          placeholder="Password*"
+          id="password"
+          name="password"
+          required
+        />
+      </div>
+      <div class="form-field">
+        <input type="submit" value="Sign In" />
+      </div>
+      <div class="form-field">
+        <p>Not a member yet? <a href="/register">Register</a></p>
+      </div>
+      <div id="errors">
+        <p class="error"></p>
+      </div>
+    </form>
+  </div>
+</div>

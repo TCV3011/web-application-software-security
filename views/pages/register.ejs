@@ -1,0 +1,68 @@
+<div class="auth-container">
+  <div class="login">
+    <form>
+      <div class="form-field">
+        <label for="name">
+          <ion-icon name="man"></ion-icon>
+        </label>
+        <input
+          type="text"
+          placeholder="Full name*"
+          id="name"
+          name="name"
+          autofocus="autofocus"
+          required
+        />
+      </div>
+      <div class="form-field">
+        <label for="email">
+          <ion-icon name="mail"></ion-icon>
+        </label>
+        <input
+          type="email"
+          placeholder="Email*"
+          id="email"
+          name="email"
+          required
+        />
+      </div>
+      <div class="form-field">
+        <label for="password">
+          <ion-icon name="lock-closed"></ion-icon>
+        </label>
+        <input
+          type="password"
+          placeholder="Password*"
+          id="password"
+          name="password"
+          required
+        />
+      </div>
+      <div class="form-field">
+        <label for="password">
+          <ion-icon name="lock-closed"></ion-icon>
+        </label>
+        <input
+          type="password"
+          placeholder="Confirm password*"
+          id="ConfPassword"
+          name="ConfPassword"
+          required
+        />
+      </div>
+      <div class="form-field">
+        <input type="checkbox" name="acceptPolicy" id="acceptPolicy" required />
+        <label for="acceptPolicy">Accept Privacy Policy*</label>
+      </div>
+      <div class="form-field">
+        <input type="submit" value="Sign Up" />
+      </div>
+      <div class="form-field">
+        <p>Already have an account? <a href="/login">Login</a></p>
+      </div>
+      <div id="errors">
+        <p class="error"></p>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,8 +1,3 @@
-/**
- * index.js
- * author: Tycho Verstraete
- * date: 21/11/2020
- */
 'use strict'
 
 // Required external modules
@@ -13,26 +8,47 @@ const dotenv = require('dotenv').config({
 })
 const router = require('./router')
 const apiRouter = require('./api/router')
-const apiDocRouter = require('./api/docRouter')
+const cors = require('cors')
+const session = require('express-session')
+var expressLayouts = require('express-ejs-layouts')
 
-// App variables
+// Server variables
 const app = express()
 const port = process.env.APP_PORT
-const siteUrl = process.env.APP_URL
+
+app.use('/api', express.json())
+// app.use('/api', cors())
+app.use('/api', apiRouter)
+
+app.set('view engine', 'ejs')
+app.use(expressLayouts)
+
+// Static Files
+app.use(express.static('public'))
+app.use('/css', express.static(__dirname + 'public/css'))
+app.use('/js', express.static(__dirname + 'public/js'))
+app.use('/img', express.static(__dirname + 'public/img'))
+
 app.use(router)
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false
+  })
+)
 
-// API variables
-const api = express()
-const apiPort = process.env.API_PORT
-api.use(apiDocRouter)
-api.use('/api', apiRouter)
-api.use(express.json())
-api.use(express.urlencoded({ extended: true }))
+// Set View's
+app.set('views', './views')
+app.set('view engine', 'ejs')
 
+const siteUrl = process.env.APP_URL
 // Server & API activation
 app.listen(port, () => {
-  console.log(`App listening on ${siteUrl}:${port}`)
-})
-api.listen(apiPort, () => {
-  console.log(`API listening on ${siteUrl}:${apiPort}`)
+  console.log(
+    `[${new Date()
+      .toISOString()
+      .slice(0, 19)
+      .replace('T', ' ')}] Server listening on ${siteUrl}:${port}`
+  )
 })

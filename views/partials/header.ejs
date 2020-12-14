@@ -1,0 +1,18 @@
+<header>
+  <div class="container">
+    <nav>
+      <div class="left-wrapper">
+        <a href="/" class="image-wrapper">
+            <img src="img/logo.png" alt="logo" />
+        </a>
+        <ul>
+            <li><a <% if (title == "Home") { %> class="active"<% } %> href="/">Home</a></li>
+        </ul>
+      </div>
+      <ul>
+        <li><a <% if (title == "Login") { %> class="active"<% } %> href="/login">Login</a></li>
+        <li><a <% if (title == "Register") { %> class="active"<% } %> href="/register">Register</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>

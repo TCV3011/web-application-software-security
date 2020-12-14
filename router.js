@@ -1,22 +1,23 @@
-/**
- * router.js
- * author: Tycho Verstraete
- * date: 21/11/2020
- */
 'use strict'
-
 const express = require('express')
 const router = express.Router()
-const path = require('path')
 
 // Routes
 router.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'frontend/index.html'))
+  res.render('pages/index', { title: 'Home' })
+})
+
+router.get('/login', (req, res) => {
+  res.render('pages/login', { title: 'Login' })
+})
+
+router.get('/register', (req, res) => {
+  res.render('pages/register', { title: 'Register' })
 })
 
 // Not Predefined Routes Definitions
 router.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'frontend/html/404.html'))
+  res.render('pages/error', { title: 'Error', code: 404, message: 'Not found' })
 })
 
 module.exports = router
