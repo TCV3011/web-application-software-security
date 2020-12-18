@@ -1,32 +1,27 @@
 {
-  "name": "web-application-software-security",
+  "name": "passportjs",
   "version": "1.0.0",
-  "description": "A web secure webapp in nodejs",
-  "main": "index.js",
+  "description": "",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
+    "start": "nodemon app.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/TCV3011/web-application-software-security.git"
-  },
-  "author": "Tycho Verstraete",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/TCV3011/web-application-software-security/issues"
-  },
-  "homepage": "https://github.com/TCV3011/web-application-software-security#readme",
   "dependencies": {
     "bcrypt": "^5.0.0",
-    "cors": "^2.8.5",
-    "dotenv": "^8.2.0",
-    "ejs": "^0.8.8",
+    "ejs": "^3.1.5",
     "express": "^4.17.1",
     "express-ejs-layouts": "^2.5.0",
+    "express-flash": "^0.0.2",
     "express-session": "^1.17.1",
-    "flash": "^1.1.0",
     "mysql2": "^2.2.5",
-    "nodemon": "^2.0.6"
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0"
   }
 }

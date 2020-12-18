@@ -36,7 +36,9 @@ router.use((req, res, next) => {
 })
 
 router.get('/', (req, res) => {
-  res.status(200).json({ success: 'true' })
+  userController.test().then((result) => {
+    res.status(200).json(result)
+  })
 })
 
 router.get('/users', (req, res) => {
@@ -46,20 +48,28 @@ router.get('/users', (req, res) => {
 })
 
 router.post('/users/register', (req, res) => {
-  let user = new User(
-    req.body.name,
-    req.body.email,
-    req.body.password,
-    req.body.confPassword
-  )
-  user.saveToDatabase()
-  if (user.saveToDatabase()) {
-    res.status(201).json(req.body)
+  if (req.body.confPassword == req.body.password) {
+    let user = new User(req.body.name, req.body.email, req.body.password)
+    userController.registerUser(user).then((success) => {
+      if (success) {
+        res.status(201).json({
+          success: true,
+          message: 'User saved successfully',
+          user: user
+        })
+      } else {
+        res.status(400).json({
+          success: false,
+          message: 'Something went wrong. User is not saved.'
+        })
+      }
+    })
+  } else {
+    res.status(400).json({
+      success: false,
+      message: 'Passwords must match. User is not saved.'
+    })
   }
-  res.status(400).json({
-    success: false,
-    message: `Something went wrong. User is not saved.`
-  })
 })
 
 // Not Predefined Routes Definitions
