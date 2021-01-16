@@ -4,6 +4,7 @@ const express = require('express')
 const dotenv = require('dotenv').config()
 const app = express()
 const port = process.env.APP_PORT
+const URL = process.env.APP_URL
 const expressLayouts = require('express-ejs-layouts')
 const generalRouter = require('./routes/main.router')
 const authRouter = require('./routes/auth.router')
@@ -20,5 +21,5 @@ app.use(generalRouter)
 app.use('/auth', authRouter)
 
 app.listen(port, () => {
-  console.log(`Listening on port ${port}`)
+  console.log(`Listening on ${URL}:${port}`)
 })

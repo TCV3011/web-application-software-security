@@ -1,12 +1,18 @@
 'use strict'
 
 const checkAuthenticated = (req, res, next) => {
-  console.log(req.isAuthenticated())
   if (req.isAuthenticated()) {
     return next()
   } else {
     res.redirect('/login')
   }
 }
+const checkNotAuthenticated = (req, res, next) => {
+  if (req.isAuthenticated()) {
+    return res.redirect('/dashboard')
+  } else {
+    next()
+  }
+}
 
-module.exports = { checkAuthenticated }
+module.exports = { checkAuthenticated, checkNotAuthenticated }

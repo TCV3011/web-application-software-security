@@ -1,0 +1,22 @@
+<header>
+  <div class="ui attached stackable menu">
+    <div class="ui container">
+      <a class="item" <% if (title == "Home") { %> class="active"<% } %> href="/"> <i class="home icon"></i>Home</a>
+      
+      <div class="right menu">
+        
+        <% if(title !== "Dashboard") { %>
+            <a class="ui item" href="/login"><div class="ui button"><i class="sign-in icon"></i>Log-in</div></a>
+            <a class="ui item" href="/register"><div class="ui primary button"><i class="address card icon"></i>Sign up</div></a>
+          <% } else { %>
+          <div>
+            <form class="ui item" action="/auth/logout" method="post">
+              <label for="logout" class="ui primary button"><i class="sign-out icon"></i>Log out</label>
+              <input class="d-none" id="logout" type="submit"/>
+            </form>
+          </div>
+          <% } %>
+      </div>
+    </div>
+  </div>
+</header>

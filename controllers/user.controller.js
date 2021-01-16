@@ -54,7 +54,7 @@ module.exports = async () => {
     }
 
     const findOrCreateUser = async (user) => {
-      if (typeof (await findUserByEmail(user.email)) !== 'undefined') {
+      if ((await findUserByEmail(user.email)) !== null) {
         return user
       } else {
         safeQuery(
