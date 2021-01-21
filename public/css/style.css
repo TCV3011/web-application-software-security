@@ -1,3 +1,75 @@
+@font-face {
+  font-family: 'Title';
+  src: url('../fonts/Poppins-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'Text';
+  src: url('../fonts/Poppins-Regular.ttf');
+}
+
+* {
+  font-family: 'Text';
+}
+
+::selection {
+  color: #eee;
+  background: #333;
+}
+
 .d-none {
   display: none;
+}
+
+.auth-container {
+  width: 400px !important;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  height: 90vh;
+}
+
+.ui.checkbox label {
+  display: inline-block;
+}
+
+h1 {
+  font-family: 'Title';
+  font-size: 8rem;
+  margin: 5rem 0 !important;
+}
+
+p {
+  font-size: 1.2em;
+  color: rgb(122, 122, 122);
+}
+
+a,
+a:hover {
+  text-decoration: underline;
+}
+
+#footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+
+#footer .ui.segment {
+  margin: 0;
+}
+
+.bottom-nav a {
+  margin: 0 0.5rem;
+}
+
+.social-nav {
+  margin-top: 1rem;
+  font-size: 1.4em;
+}
+
+.social-nav a {
+  color: #333;
+  text-decoration: none;
 }

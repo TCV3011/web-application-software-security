@@ -1,48 +1,51 @@
-<div class="ui container auth-container">
-  <h2>Login</h2>
-  <div>
-    <form method="POST" action="auth/login" class="ui form">
-      <div class="field">
-        <div class="ui left icon input">
-          <input
-            id="email"
-            type="email"
-            name="email"
-            value=""
-            placeholder="Email"
-            required=""
-            autofocus=""
-          />
-          <i class="envelope icon"></i>
+<div class="auth-container">
+  <div class="ui container">
+    <h2>Login</h2>
+    <div>
+      <form method="POST" action="auth/login" class="ui form">
+        <div class="field">
+          <div class="ui left icon input">
+            <input
+              id="email"
+              type="email"
+              name="email"
+              value=""
+              placeholder="Email"
+              required=""
+              autofocus=""
+            />
+            <i class="envelope icon"></i>
+          </div>
         </div>
-      </div>
-      <div class="field">
-        <div class="ui left icon input">
-          <input
-            id="password"
-            type="password"
-            name="password"
-            placeholder="Password"
-            required=""
-          />
-          <i class="lock icon"></i>
+        <div class="field">
+          <div class="ui left icon input">
+            <input
+              id="password"
+              type="password"
+              name="password"
+              placeholder="Password"
+              required=""
+            />
+            <i class="lock icon"></i>
+          </div>
         </div>
-      </div>
-      <% if(messages.error) { %>
-      <div class="ui warning message visible">
-        <div class="header">Can't log in</div>
-        <%= messages.error %>
-      </div>
-      <% } %>
-      <div class="field">
-        <div class="ui checkbox">
-          <input type="checkbox" name="remember" id="remember" />
-          <label for="remember">Remember me</label>
+        <% if(messages.error) { %>
+        <div class="ui warning message visible">
+          <div class="header">Can't log in</div>
+          <%= messages.error %>
         </div>
-      </div>
-      <div>
-        <button type="submit" class="ui button">Login</button>
-      </div>
-    </form>
+        <% } %>
+        <div class="field">
+          <div class="ui checkbox">
+            <input type="checkbox" name="remember" id="remember" />
+            <label for="remember">Remember me</label>
+          </div>
+        </div>
+        <div class="field">
+          <button type="submit" class="ui button">Login</button>
+        </div>
+        <div>Don't have an account yet? <a href="/register">Register</a></div>
+      </form>
+    </div>
   </div>
 </div>
