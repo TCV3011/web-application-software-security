@@ -36,7 +36,7 @@ router.post(
 
 router.post('/logout', checkAuthenticated, (req, res) => {
   req.logOut()
-  res.redirect('/login')
+  res.redirect('/')
 })
 
 module.exports = router

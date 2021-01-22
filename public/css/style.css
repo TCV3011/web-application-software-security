@@ -29,6 +29,10 @@
   height: 90vh;
 }
 
+#logout-form label {
+  cursor: pointer;
+}
+
 .ui.checkbox label {
   display: inline-block;
 }

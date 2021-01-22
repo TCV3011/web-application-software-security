@@ -3,7 +3,6 @@
     <h2>Register</h2>
     <form class="ui form" method="POST" action="register">
       <div class="field">
-        <label>Name</label>
         <div class="two fields">
           <div class="field">
             <input
@@ -43,6 +42,7 @@
           name="password"
           placeholder="Password"
           required=""
+          minlength="7"
         />
       </div>
       <div class="field">
@@ -52,12 +52,14 @@
           name="confPassword"
           placeholder="Confirmation Password"
           required=""
+          minlength="7"
         />
       </div>
       <% if(errors && errors.length > 0) { %>
       <div class="ui warning message visible">
-        <div class="header">Can't register</div>
-        <%= errors %>
+        <div class="header">User not registered</div>
+        <% for (let error of errors) { %> <%= error.msg %> <br />
+        <% } %>
       </div>
       <% } %>
       <div>
@@ -68,8 +70,8 @@
               name="consentReg"
               id="consentReg"
               checked
-              disabled
               required
+              value="true"
             />
             <label for="consentReg">
               If you register you're accepting the
@@ -85,3 +87,5 @@
     </form>
   </div>
 </div>
+
+<%- include('../partials/footer.ejs') %>

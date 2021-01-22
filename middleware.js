@@ -1,5 +1,7 @@
 'use strict'
 
+const mailer = require('./config/email.setup')
+
 const checkAuthenticated = (req, res, next) => {
   if (req.isAuthenticated()) {
     return next()
@@ -15,4 +17,26 @@ const checkNotAuthenticated = (req, res, next) => {
   }
 }
 
-module.exports = { checkAuthenticated, checkNotAuthenticated }
+const sendEmail = (to, subject, message) => {
+  console.log('send email')
+  const mailOptions = {
+    from: process.env.EMAIL_USER,
+    to: to,
+    subject: subject,
+    html: `<h1>${subject}</h1>
+      <p>${message}</p>`
+  }
+  mailer.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      console.log(error)
+    } else {
+      console.log('Email sent: ' + info.response)
+    }
+  })
+}
+
+module.exports = {
+  checkAuthenticated,
+  checkNotAuthenticated,
+  sendEmail
+}
