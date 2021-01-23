@@ -16,8 +16,8 @@ Het domein dat ik voorzien had is [tychoverstraete.me](http://tychoverstraete.me
 ## Website
 
 Voor het gehele project wou ik zo low-key mogelijk gaan en heb ik gekozen om het in [Node.Js](https://nodejs.org/) [Express](https://www.npmjs.com/package/express) te ontwikkelen.<br>
-In mijn site kan je jezelf registreren, aanmelden, je gegevens bekijken, opvragen en verwijderen.<br>
-Ook is er een privacy policy gemaakt geweest en heeft de user toegang van op iedere pagina om deze te lezen.
+In mijn site kan je jezelf registreren, aanmelden. Je gegevens bekijken, opvragen en verwijderen gaat niet omdat email verificatie met node mailer niet wil werken.<br>
+Er is een privacy policy gemaakt geweest en heeft de user toegang van op iedere pagina om deze te lezen.
 <br>
 Gebruikmakend van npm heb ik packages geinstalleerd die bepaalde flows toch makkelijker maakte:
 
