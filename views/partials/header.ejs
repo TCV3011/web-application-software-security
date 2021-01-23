@@ -2,17 +2,20 @@
   <div class="ui secondary menu">
     <div class="ui container">
       <% if(title !== "Dashboard") { %>
-      <a class="item" <% if (title == "Home") { %> class="active"<% } %> href="/">Home</a>
+      <a class="ui item" <% if (title == "Home") { %> class="active"<% } %> href="/">Home</a>
       <div class="right menu">
             <a class="ui item" href="/login"><div>Log in</div></a>
             <a class="ui item" href="/register"><div>Register</div></a>
       </div>
       <% } else { %>
-        <div id="logout-form">
-          <form action="/auth/logout" method="post">
-            <label class="ui item" for="logout"><i class="sign-out icon"></i>Log out</label>
-            <input class="d-none" id="logout" type="submit"/>
-          </form>
+        <div class="menu">
+          <a class="ui item" href="/profile"><div>Profile</div></a>
+          <div id="logout-form">
+            <form action="/auth/logout" method="post">
+              <label class="ui item" for="logout"><i class="sign-out icon"></i>Log out</label>
+              <input class="d-none" id="logout" type="submit"/>
+            </form>
+          </div>
         </div>
       <% } %>
     </div>

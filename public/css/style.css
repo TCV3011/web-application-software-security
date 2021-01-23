@@ -53,9 +53,19 @@ a:hover {
   text-decoration: underline;
 }
 
-#footer {
+#stickyFooter {
   position: fixed;
   bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+
+#stickyFooter .ui.segment {
+  margin: 0;
+}
+
+#footer {
+  margin-top: 5rem;
   width: 100%;
   text-align: center;
 }

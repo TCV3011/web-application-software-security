@@ -1,10 +1,15 @@
 'use strict'
 
 const mailer = require('./config/email.setup')
+const UserController = require('./controllers/user.controller')
 
 const checkAuthenticated = (req, res, next) => {
   if (req.isAuthenticated()) {
-    return next()
+    if (req.user.email_verified == null) {
+      res.redirect('/verification')
+    } else {
+      return next()
+    }
   } else {
     res.redirect('/login')
   }

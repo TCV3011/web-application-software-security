@@ -72,6 +72,18 @@ module.exports = async () => {
       }
     }
 
+    const getUserIdByEmail = async (email) => {
+      const rows = await safeQuery(
+        'SELECT id FROM users WHERE email = ?',
+        email
+      )
+      return convertToSingleUser(rows)
+    }
+
+    const verifyEmailById = async (id) => {
+      safeQuery(`UPDATE users SET email_verified=? WHERE id=?`, [true, id])
+    }
+
     const db = {
       test: async () => {
         return await safeQuery('SELECT 1')
@@ -84,6 +96,13 @@ module.exports = async () => {
       },
       findById: async (id) => {
         return await findUserById(id)
+      },
+      getIdByEmail: async (email) => {
+        let tempUser = await getUserIdByEmail(email)
+        return tempUser.id
+      },
+      verifyEmailById: async (id) => {
+        return await verifyEmailById(id)
       }
     }
 

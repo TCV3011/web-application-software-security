@@ -16,12 +16,10 @@ const passport = require('passport')
 const initializePassport = require('../config/passport.setup')
 const port = process.env.APP_PORT
 const URL = process.env.APP_URL
-const { body, validationResult, check } = require('express-validator')
+const { validationResult, check } = require('express-validator')
 const sha1 = require('sha1')
 const zlib = require('zlib')
-const fetch = require('node-fetch')
 var request = require('request')
-const { throws } = require('assert')
 
 initializePassport(passport)
 
@@ -145,7 +143,7 @@ router.post('/register', checkNotAuthenticated, async (req, res) => {
                 'Verify your email',
                 `Please click the button below to verify your email address.
   
-                    <a href="http://${URL}:${port}/auth/verify">Verify your email</a>
+                    <a href="http://${URL}:${port}/auth/verify?uId=${req.user.id}">Verify your email</a>
   
                     If you did not create an account, no further action is required.
   
@@ -184,12 +182,20 @@ router.post('/register', checkNotAuthenticated, async (req, res) => {
   }
 })
 
-router.get('/verification', checkAuthenticated, (req, res) => {
+router.get('/verification', (req, res) => {
   res.render('pages/verification.ejs', { title: 'Verification' })
 })
 
 router.get('/dashboard', checkAuthenticated, (req, res) => {
   res.render('pages/dashboard.ejs', { title: 'Dashboard', name: req.user.name })
+})
+
+router.get('/profile', checkAuthenticated, (req, res) => {
+  res.render('pages/profile.ejs', { title: 'Profile', name: req.user.name })
+})
+
+router.get('/privacy-policy', (req, res) => {
+  res.render('pages/privacy-policy.ejs', { title: 'Privacy policy' })
 })
 
 module.exports = router
